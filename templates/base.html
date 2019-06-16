@@ -28,6 +28,12 @@
     {% endif %}
     
     {% endblock head %}
+
+    {% if FAVICON %}
+        <link rel="shortcut icon" href="{{ SITE_URL }}/{{ FAVICON }}" type="image/x-icon">
+        <link rel="icon" href="{{ SITE_URL }}/{{ FAVICON }}" type="image/x-icon">
+    {% endif %}
+    
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 
@@ -113,7 +119,7 @@
                     Tagcloud
                 </div>
                 <div>
-                    {% for tag, size in tags %}
+                    {% for tag, size in tag_cloud %}
                         <span><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag.name }}</a></span>
                     {% endfor %}
                 </div>
