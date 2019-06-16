@@ -28,6 +28,7 @@
     {% endif %}
     
     {% endblock head %}
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 
 <body id="index" class="blog">
@@ -83,6 +84,16 @@
             </section>
             {% endblock %}
             -->
+            {% if GITHUB_USER %}
+                {% block github %}
+                <section id="widget-github" class="widget-wrapper widget_archive">
+                    <ul>
+                        <a class="github-button" href="https://github.com/{{ GITHUB_USER }}" aria-label="Follow @{{ GITHUB_USER }} on GitHub">Follow @cherusk</a>
+                        <a class="github-button" href="https://github.com/{{ GITHUB_USER }}/{{ GITHUB_USER }}.github.io" data-icon="octicon-star" data-show-count="true" aria-label="Star cherusk/cherusk.github.io on GitHub">Star</a>
+                    </ul>
+                </section>
+                {% endblock %}
+            {% endif %}
             {% block categories %}
             <section id="widget-category" class="widget-wrapper widget_archive">
                 <div class="widget-title">
@@ -102,7 +113,7 @@
                     Tagcloud
                 </div>
                 <div>
-                    {% for tag, size in tag_cloud %}
+                    {% for tag, size in tags %}
                         <span><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag.name }}</a></span>
                     {% endfor %}
                 </div>
