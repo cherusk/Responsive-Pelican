@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 {% block nav %}
 <a href="{{ SITEURL }}">Blog</a> ›<a href="{{ article.category.url }}">{{ article.category }}</a> ›{{ article.title }}
+
 {% endblock %}
+
+
+
 
 {% block content %}
 {{ super() }}
+
 <section id="post" class="post hentry">
     <header>
     <h2 class="post-title" >{{ article.title }}</h2>
@@ -21,7 +26,19 @@
             {% endfor %}
         <!-- TOBE COMMENTS -->
     </div>
+
+
+
     </header>
+
+    <!-- TOC -->
+    {% if article.toc %}
+    <div class="toc col-lg-3 hidden-xs hidden-sm">
+        <b>Table of Content</b>
+        {{article.toc}}
+    </div>
+    {% endif %}
+
     <div class="post-entry">
         {{ article.content }}
     </div><!-- /.entry-content -->
