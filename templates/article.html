@@ -13,6 +13,11 @@
 <section id="post" class="post hentry">
     <header>
     <h2 class="post-title" >{{ article.title }}</h2>
+
+    {% if article.readtime %}
+        <div><b>Read in {{article.readtime.minutes}} min.</b></div>
+    {% endif %}
+
     {% import 'translations.html' as translations with context %}
     {{ translations.translations_for(article) }}
     <div class="post-meta">
@@ -26,9 +31,6 @@
             {% endfor %}
         <!-- TOBE COMMENTS -->
     </div>
-
-
-
     </header>
 
     <!-- TOC -->

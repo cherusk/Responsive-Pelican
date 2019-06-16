@@ -29,6 +29,10 @@
     
     {% endblock head %}
 
+    {% if GOOGLE_ANALYTICS %}
+          {% include "partial/google_analytics.html" %}
+    {% endif %}
+
     {% if FAVICON %}
         <link rel="shortcut icon" href="{{ SITE_URL }}/{{ FAVICON }}" type="image/x-icon">
         <link rel="icon" href="{{ SITE_URL }}/{{ FAVICON }}" type="image/x-icon">
